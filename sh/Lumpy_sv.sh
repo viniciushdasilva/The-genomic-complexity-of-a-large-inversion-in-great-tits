@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --time=1-0:0:0
+#SBATCH --ntasks=6
+#SBATCH --nodes=1
+#SBATCH --error=error_GT_speedseq_sv.txt
+#SBATCH --job-name=AG_GT_speedseq_sv
+#SBATCH --partition=ABGC_Std
+#SBATCH --mem=12000
+
+##Call structural variation with speedseq and Lumpy
+speedseq sv -B /lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.1198.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.11.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.1235.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.1280.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.1376.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.1387.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.233.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.235.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.317.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.477.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.52.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.731.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.770.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.823.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.836.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.896.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.906.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.935.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.973.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL38138.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL38174.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL38187.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL38197.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL38215.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL38228.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL39399.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL39490.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL39600.dedup.real.bam,/lustre/nobackup/WUR/ABGC/shared/great_tit/BAM_30birds/chr1A.TL39629.dedup.real.bam -R Chr1A.fa -t 6 -m 4 -g -o GT
+##Filter and add converage information
+python add_coverage_info_SV.py -v GT.sv.vcf.gz
