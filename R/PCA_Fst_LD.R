@@ -158,6 +158,7 @@ pdf(file.path(path.gen, paste0("LD",SK,"Chr1A.maf",MAFv, ".ld", LDT, MET, ".pdf"
 LDheatmap::LDheatmap(LD$LD, as.numeric(as.character(mapchrXSe$position)), color = (heat.colors(20)),
           title=paste0("Pairwise LD ",TI), LDmeasure=LDPlotMethod)
 graphics.off()
+gdsfmt::closefn.gds(genofile)
 
 ######################################################## END ####################################################
 
@@ -201,9 +202,7 @@ LDheatmap::LDheatmap(LD$LD, as.numeric(as.character(mapchrXSe$position)),
           color = (heat.colors(20)), title=paste0("Pairwise LD ",TI),
           LDmeasure=LDPlotMethod)
 graphics.off()
-
-closefn.gds(genofile)
-
+gdsfmt::closefn.gds(genofile)
 ######################################################## END ####################################################
 
 #### Non-phased chromosomes for samples WITHOUT the inversion ###################################################
@@ -243,8 +242,6 @@ LDheatmap::LDheatmap(LD$LD, as.numeric(as.character(mapchrXSe$position)),
           color = (heat.colors(20)), title=paste0("Pairwise LD ",TI),
           LDmeasure=LDPlotMethod)
 graphics.off()
-
-
 gdsfmt::closefn.gds(genofile)
 
 ######################################################## END ####################################################
