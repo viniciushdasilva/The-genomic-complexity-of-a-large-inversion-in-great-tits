@@ -84,6 +84,7 @@ gdsfmt::closefn.gds(genofile)
 SnpsAll <- cbind(snps_inv, snps_noinv)
 SnpsAll <- SnpsAll+1
 SnpsAll1 <- SnpsAll
+library(snpStats)
 SnpsAll <- new("SnpMatrix", t(SnpsAll))
 
 ### Infer FST for each SNP marker 
