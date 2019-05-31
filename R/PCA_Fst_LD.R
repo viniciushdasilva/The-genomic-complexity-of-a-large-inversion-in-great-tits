@@ -59,8 +59,8 @@ snps <- as.data.frame(snps)
 snps_inv <- snps[,colnames(snps) %in% invsam$sample.id, drop=FALSE] ## Select samples with inversion
 snps_inv <- snps_inv[rownames(snps_inv) %in% chrx$probeset_id,,drop=FALSE]
 
-snps_noinv <- snps[,Hmisc::`%nin%`(colnames(snps), invsam$sample.id), drop=FALSE] ## Select samples with inversion
-snps_noinv <- snps_noinv[rownames(snps_noinv) %in% chrx$probeset_id,,drop=FALSE] ## Select samples with inversion
+snps_noinv <- snps[,Hmisc::`%nin%`(colnames(snps), invsam$sample.id), drop=FALSE] ## Select samples without inversion
+snps_noinv <- snps_noinv[rownames(snps_noinv) %in% chrx$probeset_id,,drop=FALSE] 
 
 ############# Transform a normal matrix in a 'SnpMatrix' to use it in 'snpStats' package
 Invsamp <- as.data.frame(colnames(snps_inv))
